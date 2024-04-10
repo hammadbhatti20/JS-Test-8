@@ -453,3 +453,267 @@
 // var radius = 5;
 // calcCircumference(radius); // Output: The circumference is 31.42
 // calcArea(radius); // Output: The area is 78.54
+
+
+//Chapter No: 38-42
+
+//Q1
+// // Define a custom function power(a, b) to calculate the value of a raised to b
+// function power(a, b) {
+//     // Check if b is equal to 0
+//     if (b === 0) {
+//         return 1; // Any number raised to the power of 0 is 1
+//     } else if (b > 0) { // Check if b is positive
+//         let result = 1;
+//         // Multiply a by itself b times
+//         for (let i = 1; i <= b; i++) {
+//             result *= a;
+//         }
+//         return result;
+//     } else { // b is negative
+//         let result = 1;
+//         // Multiply 1 by a b times (since a^-b = 1 / a^b)
+//         for (let i = 1; i <= Math.abs(b); i++) {
+//             result *= a;
+//         }
+//         return 1 / result;
+//     }
+// }
+
+// // Example usage:
+// const base = 2;
+// const exponent = 3;
+// console.log(power(base, exponent)); // Output: 8 (2 raised to the power of 3 is 8)
+
+//Q2
+// function isLeapYear(year) {
+//     // Leap years are divisible by 4
+//     // Except for years divisible by 100
+//     // But years divisible by 400 are leap years
+
+//     // Check if the year is divisible by 4
+//     if (year % 4 === 0) {
+//         // Check if the year is divisible by 100 and not divisible by 400
+//         if (year % 100 === 0 && year % 400 !== 0) {
+//             return false; // Not a leap year
+//         } else {
+//             return true; // Leap year
+//         }
+//     } else {
+//         return false; // Not a leap year
+//     }
+// }
+
+// // Example usage:
+// const year = 2024;
+// if (isLeapYear(year)) {
+//     console.log(year + " is a leap year.");
+// } else {
+//     console.log(year + " is not a leap year.");
+// }
+
+//Q3
+// // Function to calculate the semi-perimeter (S)
+// function semiPerimeter(a, b, c) {
+//     return (a + b + c) / 2;
+// }
+
+// // Function to calculate the area of the triangle using Heron's formula
+// function triangleArea(a, b, c) {
+//     const S = semiPerimeter(a, b, c);
+//     const area = Math.sqrt(S * (S - a) * (S - b) * (S - c));
+//     return area;
+// }
+
+// // Example usage:
+// const sideA = 3;
+// const sideB = 4;
+// const sideC = 5;
+// const area = triangleArea(sideA, sideB, sideC);
+// console.log("Area of the triangle:", area);
+
+
+//Q4
+// // Function to calculate average of marks
+// function calculateAverage(subject1, subject2, subject3) {
+//     return (subject1 + subject2 + subject3) / 3;
+// }
+
+// // Function to calculate percentage of marks
+// function calculatePercentage(subject1, subject2, subject3) {
+//     const totalMarks = subject1 + subject2 + subject3;
+//     const totalSubjects = 3;
+//     return (totalMarks / (totalSubjects * 100)) * 100;
+// }
+
+// // Main function to call other functions and display results
+// function mainFunction(subject1, subject2, subject3) {
+//     const average = calculateAverage(subject1, subject2, subject3);
+//     const percentage = calculatePercentage(subject1, subject2, subject3);
+
+//     console.log("Average marks:", average);
+//     console.log("Percentage:", percentage + "%");
+// }
+
+// // Example usage:
+// const subject1Marks = 80;
+// const subject2Marks = 75;
+// const subject3Marks = 85;
+// mainFunction(subject1Marks, subject2Marks, subject3Marks);
+
+//Q5
+// function customIndexOf(string, char) {
+//     // Iterate through each character of the string
+//     for (let i = 0; i < string.length; i++) {
+//         // If the current character matches the given character
+//         if (string[i] === char) {
+//             // Return the index of the first occurrence
+//             return i;
+//         }
+//     }
+//     // If the character is not found, return -1
+//     return -1;
+// }
+
+// // Example usage:
+// const str = "Hello, World!";
+// const charToFind = "o";
+// console.log(customIndexOf(str, charToFind)); // Output: 4 (index of 'o' in "Hello, World!")
+
+//Q6
+// function removeVowels(sentence) {
+//     const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+//     let result = '';
+
+//     // Iterate through each character in the sentence
+//     for (let i = 0; i < sentence.length; i++) {
+//         const char = sentence[i];
+//         // Check if the character is not a vowel
+//         if (!vowels.includes(char)) {
+//             // If it's not a vowel, add it to the result
+//             result += char;
+//         }
+//     }
+
+//     return result;
+// }
+
+// // Example usage:
+// const sentence = "This is a sample sentence without vowels.";
+// const result = removeVowels(sentence);
+// console.log("Sentence without vowels:", result);
+
+//Q7
+// function countSuccessiveVowels(text) {
+//     let count = 0;
+//     const vowels = "aeiouAEIOU";
+
+//     // Iterate through each character in the text
+//     for (let i = 0; i < text.length - 1; i++) {
+//         const char = text[i];
+//         const nextChar = text[i + 1];
+
+//         // Check if the current character and the next character are both vowels
+//         if (vowels.includes(char) && vowels.includes(nextChar)) {
+//             switch (char + nextChar) {
+//                 case 'ea':
+//                 case 'ea':
+//                 case 'ui':
+//                 case 'ui':
+//                     count++;
+//                     break;
+//                 default:
+//                     break;
+//             }
+//         }
+//     }
+
+//     return count;
+// }
+
+// // Example usage:
+// const text = "Pleases read this application and give me gratuity";
+// console.log("Number of occurrences of two successive vowels:", countSuccessiveVowels(text));
+
+//Q8
+// // Function to convert distance from kilometers to meters
+// function convertToMeters(distance) {
+//     return distance * 1000;
+// }
+
+// // Function to convert distance from kilometers to feet
+// function convertToFeet(distance) {
+//     return distance * 3280.84;
+// }
+
+// // Function to convert distance from kilometers to inches
+// function convertToInches(distance) {
+//     return distance * 39370.1;
+// }
+
+// // Function to convert distance from kilometers to centimeters
+// function convertToCentimeters(distance) {
+//     return distance * 100000;
+// }
+
+// // Sample usage
+// const distanceInKilometers = parseFloat(prompt("Enter the distance between two cities in kilometers:"));
+
+// console.log("Distance in meters:", convertToMeters(distanceInKilometers));
+// console.log("Distance in feet:", convertToFeet(distanceInKilometers));
+// console.log("Distance in inches:", convertToInches(distanceInKilometers));
+// console.log("Distance in centimeters:", convertToCentimeters(distanceInKilometers));
+
+//Q9
+// function calculateOvertimePay(hoursWorked) {
+//     const regularHours = 40;
+//     const overtimeRate = 12; // Rs. 12.00 per hour
+
+//     if (hoursWorked <= regularHours) {
+//         return 0; // No overtime pay if hours worked is less than or equal to 40
+//     } else {
+//         const overtimeHours = hoursWorked - regularHours;
+//         const overtimePay = overtimeHours * overtimeRate;
+//         return overtimePay;
+//     }
+// }
+
+// // Sample usage
+// const hoursWorked = parseFloat(prompt("Enter the number of hours worked:"));
+
+// const overtimePay = calculateOvertimePay(hoursWorked);
+// console.log("Overtime Pay: Rs.", overtimePay.toFixed(2));
+
+//Q10
+// function calculateCurrencyNotes(amountInHundreds) {
+//     const denomination100 = 100;
+//     const denomination50 = 50;
+//     const denomination10 = 10;
+
+//     let remainingAmount = amountInHundreds * 100; // Convert input from hundreds to actual amount
+
+//     // Calculate number of 100 rupee notes
+//     const notes100 = Math.floor(remainingAmount / denomination100);
+//     remainingAmount -= notes100 * denomination100;
+
+//     // Calculate number of 50 rupee notes
+//     const notes50 = Math.floor(remainingAmount / denomination50);
+//     remainingAmount -= notes50 * denomination50;
+
+//     // Calculate number of 10 rupee notes
+//     const notes10 = Math.floor(remainingAmount / denomination10);
+
+//     return {
+//         notes100: notes100,
+//         notes50: notes50,
+//         notes10: notes10
+//     };
+// }
+
+// // Sample usage
+// const amountInHundreds = parseInt(prompt("Enter the amount to be withdrawn in hundreds:"));
+
+// const notes = calculateCurrencyNotes(amountInHundreds);
+// console.log("Number of 100 rupee notes:", notes.notes100);
+// console.log("Number of 50 rupee notes:", notes.notes50);
+// console.log("Number of 10 rupee notes:", notes.notes10);
